@@ -7,7 +7,7 @@ The application should have a homepage and templates for displaying individual p
 ## Instructions
 
 ### 1. API Endpoints
-   - The WordPress JSON API will be accessible from `https://dev-test.yourballistic.com/wp-json`.
+   - The WordPress JSON API will be accessible from `https://dev-test.yourballistic.com/wp-json`. 
    - No auth is required, as you'll only be using get endpoints that aren't protected.
    - Be careful with CORS errors.
    - Feel free to explore the API to understand the structure of posts, pages, and ACF fields. You are free to use any endpoints you wish as long as the data being pulled is correct.
