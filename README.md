@@ -1,50 +1,37 @@
-# Web Development Test: React/NextJS Frontend for WordPress Backend
+# React/NextJS Frontend for WordPress Backend
 
-## Objective:
-Develop a simple React/NextJS application that uses data from the WordPress JSON API as its backend. 
-The application should have a homepage and templates for displaying individual pages and posts.
+## Result:
+A simple React/NextJS application that uses data from the WordPress JSON API as its backend.
 
 ## Instructions
 
-### 1. API Endpoints
-   - The WordPress JSON API will be accessible from `https://dev-test.yourballistic.com/wp-json`.
-   - No auth is required, as you'll only be using get endpoints that aren't protected.
-   - Be careful with CORS errors.
-   - Feel free to explore the API to understand the structure of posts, pages, and ACF fields. You are free to use any endpoints you wish as long as the data being pulled is correct.
+### Running the project locally
+  - In the root directory of the project, run `npm run dev`
 
-### 2. Layout
-  - You're free to customize the layout. The only requirements are that you have a header with the main menu and a footer on every page.
-  - The main menu should have three buttons: "Home", "Posts", and "Pages". The last one should be a dropdown that shows pages coming from the API.
+### Documentation
+In my own words, my understanding is as follows;
+  - To build a React/NextJS app using data from the WordPress JSON API as the backend
+  - Freedom to customize the layout, other than a mandatory Header containing the main menu (Home, Posts, Pages/Dropdown Menu) and footer that displays on every page
+  - Only recent posts from the /posts endpoint listed on the Home Page, listed with the most recent post showing first, and special styling applied to show that the most recent one (1st one in the list) is "featured", with each post containing title, image if applicable, and excerpt. OnClick of the link should route to a template page which shows the post in full detail within the application.
+  - Fetch data using fetch API, and handle potential errors & loading states, use Next App Router with URLs & page names that make sense
+  - Basic styling using Tailwind CSS, with layout being responsive and mobile-friendly
 
-### 3. Homepage:
-   - Create a homepage that displays a list of recent posts with the most recent post being 'featured'. Make the featured post stand out in whichever way you prefer. 
-   - Each post on the list entry should display the title, featured image, excerpt, and should link to the individual post page.
+My assumptions during development were as follows;
+  - Use the /posts endpoint and the /pages endpoint for the content
+  - Some posts have images/videos, some do not
+  - Determine if a post has images/videos based on the featured_media value, if it is not 0, use the /media endpoint with the featured_media value (id) to render images/videos in post previews on the Home Page
+  - Posts in both the home page and posts page are to display images/videos if applicable
+  - Posts in the home page are only recent posts with excerpts
+  - Posts in the posts page are all the posts in a list with full content of each one
+  - Home page is supposed to have only the most recent posts, so there are only 4 being displayed
+  - The dropdown menu (Pages button) lists pages from the API, and onClick they route to the link from the API instead of being displayed within the application
+  - The template page is for dynamically showing single posts in more detail
+  - The posts page shows posts in full detail but in list format, as well as routing to the template page for single view
+  - ACF Fields weren't applicable given the absence of ACF values in the objects returned by the API requests from /posts
+  - Content in the footer is not of importance
+  - Footer is supposed to be fixed and always in view
+  - Keep styling simple and basic
+  - Formatting or styling the content/excerpts from the posts was not necessary
 
-### 4. Post/Page Template:
-   - Develop a couple of templates for viewing individual posts and pages.
-   - The templates should display the title, content, and any ACF fields associated with the posts.
-   - Ensure the template handles and displays media (images, videos) properly if included in the post/page content.
+Overall, I hope you enjoy reviewing my project. I made the most calculated assumptions possible based on the instructions, which were mostly clear, however there were some gray areas. In general, I tried to display skills related to code organization, working with API's, error handling, CSS styling, and good documentation during this assessment.  
 
-### 5. Fetching Data:
-   - Use `fetch` API or any suitable library like Axios to retrieve data from the WordPress JSON API.
-   - Implement proper error handling and loading states while data is being fetched.
-
-### 6. Routing:
-   - You're free to use whatever routing pattern you choose. (NextJS App Router is preferred).
-   - URLs should be user-friendly and SEO-friendly.
-
-### 7. Styling:
-   - Apply basic styling using a CSS lib like Tailwind, Chakra or MaterialUI. The layout should be responsive and mobile-friendly.
-
-### 8. Documentation:
-   - Provide a README file with instructions on how to run the project locally.
-   - Document any assumptions or decisions made during the development process.
-
-## Submission:
-- Submit the complete source code via by creating a Pull Request to this repository.
-
-## Evaluation Criteria:
-- Functionality: The application works and meets all functional requirements.
-- Code Quality: Code is clean, well-organized, and properly commented.
-- UI/UX Design: The application is easy to navigate on any device size.
-- Error Handling: The application gracefully handles and reports errors.
