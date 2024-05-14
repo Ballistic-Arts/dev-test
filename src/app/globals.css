@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.loader {
+  border-top-color: #000000;
+  animation: spinner 1.5s linear infinite;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.prose img {
+  @apply max-w-full h-auto;
+}
+
+.prose video {
+  @apply max-w-full h-auto;
+}
+
+.prose iframe {
+  @apply max-w-full h-auto;
+}
+
+.prose figure {
+  @apply max-w-full overflow-hidden;
+}
+
+.prose figcaption {
+  @apply text-center mt-2;
+}
+
+@media (max-width: 640px) {
+  .dropdown-menu {
+    @apply w-full;
+  }
+}
+
+@media (min-width: 641px) {
+  .dropdown-menu {
+    @apply w-48;
+  }
+}
+
+.container {
+  @apply mx-auto p-4 sm:p-6 lg:p-8;
+}
